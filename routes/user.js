@@ -10,7 +10,8 @@ router.post('/register', async (req, res) => {
   const email = req.body.email ;
   const username = req.body.username ;
   const password = req.body.password ;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 5);
+  // use 10 instead of 20  salt rounds , inreses performanc
   
   try {
     await createUser(username, email, hashedPassword);

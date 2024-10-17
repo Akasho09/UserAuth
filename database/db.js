@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "malikshahid",
-    database: "bank",
+    database: "userauth",
   port: 3306,
 }).promise(); ;
 // Using the promise version of mysql2

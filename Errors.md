@@ -11,6 +11,41 @@ POST /user/register 500 85.193 ms - 44
         "sqlState": "42S22",
         "sqlMessage": "Unknown column 'email' in 'field list'"
     }
+ ====> Change database in db.js to userauth <====
+
+- npm install
+ but still   Error: Cannot find module 'bcryptjs'
+Require stack:
+- /Users/akashmalik/Desktop/UserAuth/routes/user.js
+- /Users/akashmalik/Desktop/UserAuth/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1248:15)
+    at Module._load (node:internal/modules/cjs/loader:1074:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Module.require (node:internal/modules/cjs/loader:1339:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/akashmalik/Desktop/UserAuth/routes/user.js:3:16)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1691:10)
+    at Module.load (node:internal/modules/cjs/loader:1317:32) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/akashmalik/Desktop/UserAuth/routes/user.js',
+    '/Users/akashmalik/Desktop/UserAuth/index.js'
+  ]
+}
+
+Install bcrypt manually
+npm install bcryptjs
 
 
-    
+
+-  /Users/akashmalik/Desktop/UserAuth/node_modules/jsonwebtoken/sign.js:111
+    return failure(new Error('secretOrPrivateKey must have a value'));
+                   ^
+
+Error: secretOrPrivateKey must have a value
+    at module.exports [as sign] (/Users/akashmalik/Desktop/UserAuth/node_modules/jsonwebtoken/sign.js:111:20)
+    at /Users/akashmalik/Desktop/UserAuth/routes/user.js:32:27
+
+Node.js v22.9.0
